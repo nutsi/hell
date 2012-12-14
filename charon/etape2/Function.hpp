@@ -5,7 +5,7 @@
 // Login   <corentin.rivot@gmail.com>
 // 
 // Started on  Fri Dec 14 20:38:29 2012 Rivot Corentin
-// Last update Sat Dec 15 00:19:41 2012 Rivot Corentin
+// Last update Sat Dec 15 00:27:07 2012 Rivot Corentin
 //
 
 #ifndef FUNCTION_HPP_
@@ -31,7 +31,15 @@ public:
 
   ~Function() { if (_other) delete _other; }
 
-  Function(Function< T >& f) { this = f; }
+  Function(Function< T >& f) { this = f;
+  }
+
+  Function	operator=(Function< T >& f)
+  {
+    this->_func = f.func;
+    this->_other = f._other;
+    return this;
+  }
 
   Function	operator=(T (*t)(U)) {
     _func = t;
