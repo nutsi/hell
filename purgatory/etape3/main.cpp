@@ -88,5 +88,13 @@ int	main(int ac, char **av)
 
   match.find(av[1]);
 
+  std::string	st(av[1]);
+  st += av[1];
+
+  int	l;
+  match.find(st, l);
+
+  std::cout << "La seconde instance de find a matcher " << l << " fois" << std::endl;
+
   return 0;
 }
