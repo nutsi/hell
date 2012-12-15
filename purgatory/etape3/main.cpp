@@ -20,6 +20,12 @@
 
 int	main(int ac, char **av)
 {
+  if (ac < 2)
+    {
+      std::cout << "Usage : ./test_dynamic_fsa [Chaine a rechercher]" << std::endl;
+      return 0;
+    }
+
   Edge	e0('m');
   Edge	e1('e');
   Edge	e2('c');
@@ -52,6 +58,7 @@ int	main(int ac, char **av)
   s4->addLink(&e4, "S5");
   s5->addLink(&e5, "S6");
   s6->addLink(&e6, "S7");
+  s6->addLink(&e5, "S6");
   
   std::cout << s0->name() << std::endl;
   std::cout << s1->name() << std::endl;
