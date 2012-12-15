@@ -5,7 +5,6 @@
 // Login   <corentin.rivot@gmail.com>
 // 
 // Started on  Sat Dec 15 11:29:15 2012 Rivot Corentin
-
 //
 
 #include "Edge.hpp"
@@ -29,10 +28,10 @@ int	main(int ac, char **av)
   Edge	e0('m');
   Edge	e1('e');
   Edge	e2('c');
-  Edge	e3('h');
-  Edge	e4('a');
-  Edge	e5('n');
-  Edge	e6('t');
+  Edge	e3('h', 1);
+  Edge	e4('a', 1);
+  Edge	e5('n', 1);
+  Edge	e6('t', 1);
 
   Fsa	fsa;
 

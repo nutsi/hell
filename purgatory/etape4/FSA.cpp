@@ -5,7 +5,7 @@
 // Login   <corentin.rivot@gmail.com>
 // 
 // Started on  Sat Dec 15 12:31:29 2012 Rivot Corentin
-// Last update Sat Dec 15 16:34:36 2012 Rivot Corentin
+// Last update Sat Dec 15 16:43:01 2012 Rivot Corentin
 //
 
 #include "FSA.hpp"
@@ -41,6 +41,12 @@ std::list< State* >*	Fsa::closure(State* e)
 
   for (it = _state.begin(); it != _state.end(); it++)
     {
+      if (it->second->name() == e->name())
+	break;
+    }
+
+  for (; it != _state.end(); it++)
+    {
       std::map< Edge*, std::string >::iterator	itEdge;
       std::map< Edge*, std::string>	ed = it->second->edgeMap();
 
@@ -48,7 +54,7 @@ std::list< State* >*	Fsa::closure(State* e)
       no = false;
       for (itEdge = ed.begin(); itEdge != ed.end(); itEdge++)
       	{
-	  std::cout << itEdge->first->getLambda() << std::endl;
+	  //	  std::cout << itEdge->first->getLambda() << std::endl;
       	  if (it->second->isJoinable(itEdge->first))
       	    {
 	      no = true;
