@@ -1,7 +1,7 @@
-project(test_dynamic_fsa)
+project(test_nsa_to_dfa)
 
 add_executable(
-  ./test_dynamic_fsa
+  ./test_nsa_to_dfa
   main.cpp
   Edge.cpp
   Edge.hpp
