@@ -5,7 +5,7 @@
 // Login   <corentin.rivot@gmail.com>
 // 
 // Started on  Sat Dec 15 00:43:45 2012 Rivot Corentin
-// Last update Sat Dec 15 00:50:50 2012 Rivot Corentin
+// Last update Sat Dec 15 10:43:47 2012 Rivot Corentin
 //
 
 #ifndef MACHINE_HPP_
@@ -31,8 +31,11 @@ enum eAction
     ACTION_ERROR
   };
 
-#define STATE_MAX	STATE_ERROR
-#define EDGE_MAX	STATE_ERROR
+// #define STATE_MAX	STATE_ERROR
+// #define EDGE_MAX	STATE_ERROR
+
+const int	STATE_MAX = STATE_ERROR;
+const int	EDGE_MAX = 8;
 
 extern eState	gStateTable[STATE_MAX][STATE_MAX];
 extern eAction	gActionTable[EDGE_MAX][EDGE_MAX];
