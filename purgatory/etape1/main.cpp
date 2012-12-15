@@ -5,7 +5,7 @@
 // Login   <corentin.rivot@gmail.com>
 // 
 // Started on  Sat Dec 15 01:10:08 2012 Rivot Corentin
-// Last update Sat Dec 15 11:07:12 2012 Rivot Corentin
+// Last update Sat Dec 15 11:12:54 2012 Rivot Corentin
 //
 
 #include "Machine.hpp"
@@ -84,17 +84,17 @@ int	main(int ac, char **av)
 	  goto begin;
 	  //	  return 0;
 	}
-      if (cState == STATE_ERROR && gActionTable[oldcState][val] == eAction::ACTION_ERROR)
+      if (cState == STATE_ERROR && gActionTable[oldcState][val] == ACTION_ERROR)
 	{
 	  std::cout << "STATE_ERROR" << std::endl;
 	  cState = oldcState;
 	  i++;
 	  goto begin;
 	}
-      if (gActionTable[oldcState][val] == eAction::HR)
+      if (gActionTable[oldcState][val] == HR)
       	goto haltreset;
       //      if (gActionTable[cState][cState]]
-      if (gActionTable[oldcState][val] == eAction::MA)
+      if (gActionTable[oldcState][val] == MA)
       	{
       	  token.append(1, av[1][i]);
       	  std::cout << token << std::endl;
