@@ -5,7 +5,7 @@
 // Login   <corentin.rivot@gmail.com>
 // 
 // Started on  Sat Dec 15 12:38:51 2012 Rivot Corentin
-// Last update Sat Dec 15 14:16:49 2012 Rivot Corentin
+// Last update Sat Dec 15 14:32:21 2012 Rivot Corentin
 //
 
 #include "Matcher.hpp"
@@ -25,17 +25,24 @@ bool	Matcher::find(const std::string& s)
 
   State*	st;
   st = _fsa.initState();
-  for (int i = 0; s[i]; i++)
+  for (int i = 0; s[i] && !st->endState(); i++)
     {
       Edge	e(s[i]);      
       std::string n = st->nextState(&e);
       if (n != "error")
 	{
 	  token.append(1, s[i]);
-	  std::cout << token << std::endl;
+	  std::cout << "Ce qui a deja ete lu " << token << std::endl;
 	  st = _fsa[n];
 	}
       else
-	std::cout << "STATE_ERROR" << std::endl;
+	std::cout << "STATE_ERROR (ignore juste le caractere et on continue le traitement" << std::endl;
     }
+  if (st->endState())
+    {
+      std::cout << "Le pattern match avec la machine a etat" << std::endl;
+      return true;
+    }
+  std::cout << "la chaine a ete consommer mais n'a pas repondu aux exigences de la machine a etat" << std::endl;
+  return false;
 }

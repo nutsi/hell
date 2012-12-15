@@ -5,7 +5,7 @@
 // Login   <corentin.rivot@gmail.com>
 // 
 // Started on  Sat Dec 15 11:30:30 2012 Rivot Corentin
-// Last update Sat Dec 15 14:10:36 2012 Rivot Corentin
+// Last update Sat Dec 15 14:27:16 2012 Rivot Corentin
 //
 
 #ifndef STATE_HPP_
@@ -30,6 +30,10 @@ public:
   const std::string&	name() const;
 
   void	endState(bool);
+  bool	endState() const {
+    return _endState;
+  }
+
 
   std::string	nextState(Edge* e)
   {
