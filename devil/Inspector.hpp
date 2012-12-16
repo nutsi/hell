@@ -17,13 +17,6 @@
 
 #include <ostream>
 
-template < typename T >
-
-void	inspect(T t)
-{
-  std::cout << typeid(t).name() << std::endl;
-}
-
 template < class U, class Object >
 
 class	IsPrintable
@@ -54,5 +47,52 @@ public:
 private:
 
 };
+
+
+template < bool C, typename T = void* >
+
+struct enable_if
+{
+  typedef T	type;
+};
+
+template < typename T >
+
+struct enable_if < 0, T >
+{
+  //   typedef T	type;
+};
+
+template < typename T >
+
+struct Printer
+{
+  template < typename U > 
+
+  static typename enable_if< IsPrintable< std::ostream, U >::ISPRINTABLE >::type print(T& f, const U& u)
+  {
+    f << u << std::endl;
+  }
+
+  template < typename U > 
+
+  static typename enable_if< !IsPrintable< std::ostream, U >::ISPRINTABLE >::type print(T& f, const U& u)
+  {
+    f << typeid(u).name() << std::endl;	
+  }
+};
+
+
+template < typename T >
+
+void	inspect(const T& t)
+{
+  
+  //	toto;
+
+  Printer< std::ostream >::print(std::cout, t);
+
+}
+
 
 #endif

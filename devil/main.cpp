@@ -5,7 +5,7 @@
 // Login   <corentin.rivot@gmail.com>
 // 
 // Started on  Sat Dec 15 18:13:11 2012 Rivot Corentin
-// Last update Sun Dec 16 00:59:16 2012 Rivot Corentin
+// Last update Sun Dec 16 02:25:52 2012 Rivot Corentin
 //
 
 #include <iostream>
@@ -36,17 +36,25 @@ std::ostream& operator<<(std::ostream& out, const lol&)
 
 int main(int, char**)
 {
-    std::cout << " operator<< present (0) ? "
-    	      << IsPrintable< std::ostream, test >::ISPRINTABLE
-    	      << std::endl;
+  test	t;
+  lol	l;
+  std::string	toto = "salut, on vous a faker";
+
+  inspect(t);
+  inspect(l);
+  inspect(toto);
+
+    // std::cout << " operator<< present (0) ? "
+    // 	      << IsPrintable< std::ostream, test >::ISPRINTABLE
+    // 	      << std::endl;
 
 
-    std::cout << " operator<< present (1) ? "
-    	      << IsPrintable< std::ostream, lol >::ISPRINTABLE
-    	      << std::endl;    
-    std::cout << " operator<< present (1) ? "
-    	      << IsPrintable< std::ostream, A >::ISPRINTABLE
-    	      << std::endl;
+    // std::cout << " operator<< present (1) ? "
+    // 	      << IsPrintable< std::ostream, lol >::ISPRINTABLE
+    // 	      << std::endl;    
+    // std::cout << " operator<< present (1) ? "
+    // 	      << IsPrintable< std::ostream, A >::ISPRINTABLE
+    // 	      << std::endl;
   return 0;
 }
 
